@@ -29,6 +29,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CXX_FLAGS} -Wall")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${EXTRA_CXX_FLAGS} -Wall")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${EXTRA_CXX_FLAGS} -Wall -DTEST_VERBOSE")
 
+add_library(${PROJECT_NAME} rc/plistTests.cpp src/pugixml.cpp
+    src/Plist.cpp src/PlistDate.cpp )
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 add_executable(runTests src/runTests.cpp src/plistTests.cpp src/pugixml.cpp
     src/Plist.cpp src/PlistDate.cpp)
 
